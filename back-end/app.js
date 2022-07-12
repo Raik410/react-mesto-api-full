@@ -29,6 +29,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+// Че он там делал, я даже его не заметил :D
+
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
