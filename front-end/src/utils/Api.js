@@ -7,7 +7,10 @@ export class Api {
   _makeRequest(path, method, body) {
     return fetch(this.baseUrl + path, {
       method: method || "GET",
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        "Content-Type": "application/json",
+      },
       ...body,
     }).then((res) => {
       if (res.ok) {
